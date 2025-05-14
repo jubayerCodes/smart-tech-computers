@@ -1,0 +1,139 @@
+const handleSubmit = async (e, type) => {
+    e.preventDefault();
+
+    let formData = {};
+    let requestData = {};
+    let url = "";
+    let isFormData = true;
+    let successMessage = "";
+    let updateState = null;
+
+    // Switch statement to handle different types
+    switch (type) {
+      case "brand":
+        if (!brandName || !brandStatus) {
+          toast.error("Brand name and status are required!");
+          return;
+        }
+        formData.append("brandName", brandName);
+        formData.append("status", brandStatus);
+        if (brandImg) formData.append("brandImg", brandImg);
+
+        url = "http://localhost:5070/api/v1/brands";
+        successMessage = "Brand added successfully!";
+        updateState = setBrands;
+
+        // Reset after submission
+        setBrandName("");
+        setBrandImg(null);
+        setBrandStatus("");
+        break;
+
+      case "category":
+        if (!categoryName || !categoryStatus) {
+          toast.error("Category name and status are required!");
+          return;
+        }
+        formData.append("categoryName", categoryName);
+        formData.append("status", categoryStatus);
+        if (categoryImg) formData.append("categoryImg", categoryImg);
+
+        url = "http://localhost:5070/api/v1/category";
+        successMessage = "Category added successfully!";
+        updateState = setCategories;
+
+        // Reset after submission
+        setCategoryName("");
+        setCategoryImg(null);
+        setCategoryStatus("");
+        break;
+
+      case "subCategory":
+        const categoryId = selectedCategory?._id;
+        if (!subCategoryName || !subCategoryStatus || !categoryId) {
+          toast.error("Sub Category name, status, and category are required!");
+          return;
+        }
+
+        requestData = { subCategoryName, subCategoryStatus, categoryId };
+        isFormData = false; // Use JSON for sub-category
+
+        url = "http://localhost:5070/api/v1/sub-category";
+        successMessage = "Sub Category added successfully!";
+        updateState = setSubCategories;
+
+        // Reset after submission
+        setSubCategoryName("");
+        setSubCategoryStatus("");
+        setSelectedCategory(null);
+        break;
+
+      case "product":
+        const categoryID = selectedCategory?._id;
+        const subCategoryID = selectedSubCategory?._id;
+        const brandID = selectedBrand?._id;
+
+        // Validate required fields
+        if (!productName || !productStatus || !price || !categoryID || !subCategoryID || !brandID) {
+          toast.error("Product name, status, price, brand, category, and subcategory are required!");
+          return;
+        }
+
+        // Append all required fields to FormData
+        formData.productName = productName;
+        formData.productStatus = productStatus;
+        formData.price = price;
+        formData.brandID = brandID;
+        formData.categoryID = categoryID;
+        formData.subCategoryID = subCategoryID;
+
+        // Append optional fields if they exist
+        if (productCode) formData.productCode = productCode;
+        if (discountPrice) formData.discountPrice = discountPrice;
+        if (keyFeature) formData.keyFeature = keyFeature;
+        if (specification) formData.specification = specification;
+        if (description) formData.description = description;
+        if (stock) formData.stock = stock;
+        if (color.length > 0) formData.color = JSON.stringify(color);
+        if (productImgFile) formData.productImg = productImgFile;
+
+        console.log(productImgFile)
+
+
+
+        url = "http://localhost:5070/api/v1/add-product";
+        successMessage = "Product added successfully!";
+        updateState = setProduct;
+        break;
+
+      default:
+        toast.error("Invalid form type!");
+        return;
+    }
+
+    // Close modal or form (adjust according to your UI)
+    document.querySelector(`#add${type.charAt(0).toUpperCase() + type.slice(1)} .close`)?.click();
+
+    try {
+      // console.log("Sending request to:", url);
+      // for (let [key, value] of formData.entries()) {
+      //   console.log(key, value);
+      // }
+
+      console.log("Request data:", requestData);
+
+      const response = isFormData
+          ? await axios.post(url, formData)
+          : await axios.post(url, requestData);
+
+      console.log("API response:", response.data);
+      toast.success(successMessage);
+
+      if (updateState) {
+        updateState((prevData) => [...prevData, response.data.data]);
+      }
+    } catch (error) {
+      console.error("Error response:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "An unexpected error occurred!");
+    }
+  };

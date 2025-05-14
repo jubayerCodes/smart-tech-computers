@@ -1,0 +1,41 @@
+      <section className="modal fade" id="quickViewModal" tabIndex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal_header">
+              <h5 className="modal_title" id="quickViewModalLabel">
+                DJI Osmo Mobile 6
+              </h5>
+            </div>
+            <div className="modal_body">
+              <div className="product">
+                <img
+                    src={`http://localhost:5070${product.productImg}`}
+                    alt="DJI Osmo Mobile 6"
+                    className="img-fluid"
+                />
+              </div>
+              <p>
+                The DJI Osmo Mobile 6 is an intelligent gimbal packed with
+                creative features. Capture smooth video and dynamic footage
+                effortlessly.
+              </p>
+              <div className="price">
+                <span className="price1">৳149.99</span>
+                <span className="price2 text-muted">৳169.99</span>
+              </div>
+            </div>
+            <div className="modal_footer">
+              <button
+                  type="button"
+                  className="btn close_btn"
+                  data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <a href="./product-single.html" className="btn details_btn">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>

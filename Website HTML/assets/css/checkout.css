@@ -1,0 +1,655 @@
+/* ====================
+  Reset Default CSS Start
+  ==================== */
+
+/* Gilroy Font */
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-UltraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy, sans-serif";
+  src: url("../font/gilroy/Gilroy-Black.ttf") format("truetype");
+  font-weight: 900;
+}
+/* Gilroy Font */
+
+:root {
+  --primary-font: "Gilroy, sans-serif";
+  --primary-color: #09090b;
+  --secondary-color: #e31736;
+  --gardiant: linear-gradient(
+    180deg,
+    rgba(170, 170, 170, 0.1) 0%,
+    #cfcfcf 100%
+  );
+  --accent: #929292;
+  --accent-2: #e2e2e2;
+  --white: #ffffff;
+  --border-color: #929292;
+  --border-color2: #424242;
+  --border-color3: #cfcfcf;
+  --text-color: #424242;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--primary-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+body {
+  background: var(--white);
+}
+
+.container {
+  padding: 0 18px !important;
+}
+
+/*====================
+  Reset Default CSS End
+  ====================*/
+
+/* Billing Details Start */
+
+.billing_details {
+  margin-bottom: 70px;
+}
+
+.billing_details .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+  margin: 50px 0;
+}
+
+.billing_details .breadcrumb span,
+.billing_details .breadcrumb a {
+  font-size: 18px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.billing_details .breadcrumb svg {
+  width: 18px;
+  height: 18px;
+  margin: 0px 10px 0px 10px;
+}
+
+.billing_details .breadcrumb .active {
+  color: var(--primary-color);
+}
+
+.billing_details .breadcrumb svg path {
+  fill: var(--accent);
+}
+
+.billing_details .billing_section,
+.billing_details .summary_section,
+.billing_details .shipping_section {
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid #eeeff3;
+  border-radius: 16px;
+}
+
+.billing_section h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: var(--primary-color);
+  font-weight: 800 !important;
+}
+
+.billing_details .form_group_wrapper {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+}
+
+.billing_details .form_group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.billing_details .form_group .select_option {
+  position: relative;
+}
+
+.billing_details .form_group .select_option .icon {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.billing_details .select_option .icon i {
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.billing_details #country:focus,
+.billing_details #state:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.billing_details .form_group:nth-last-child(1) {
+  margin-bottom: 0px;
+}
+
+.billing_details .form_group label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.billing_details .form_group label span {
+  color: var(--secondary-color);
+}
+
+.billing_details .form_group input,
+.billing_details .form_group select,
+.billing_details .form_group textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #eeeff3;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.billing_details .form_group textarea {
+  min-height: 44px;
+}
+
+.billing_details .form_group select {
+  padding: 12px 10px;
+}
+
+.billing_details textarea {
+  height: 80px;
+}
+
+.billing_details .summary-section h2,
+.billing_details .summary_totals p {
+  font-weight: bold;
+}
+
+.billing_details .order_items p,
+.billing_details .summary_totals p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.billing_details .discount_code {
+  margin: 15px 0;
+}
+
+.billing_details .discount_input {
+  display: flex;
+}
+
+.billing_details .shipping_section {
+  margin-top: 30px;
+}
+
+.billing_details .shipping_section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: var(--primary-color);
+  font-weight: 800 !important;
+}
+
+.billing_details .shipping_option {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  border: 1px solid #eeeff3;
+  border-radius: 16px;
+}
+
+.billing_details .shipping_option:nth-last-child(1) {
+  margin-bottom: 0px !important;
+}
+
+.billing_details .shipping_option .details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.billing_details .shipping_option .regular span {
+  font-size: 16px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.billing_details .shipping_option .details strong,
+.billing_details .shipping_option .details span {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.billing_details .shipping_option input {
+  width: 29px;
+  height: 21px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.billing_details .shipping_option label {
+  width: 100%;
+  padding: 20px 0;
+  cursor: pointer;
+  position: relative;
+  margin-left: 10px;
+}
+
+.billing_details .shipping_option input[type="radio"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.billing_details .shipping_option label::before {
+  content: "";
+  position: absolute;
+  top: 34%;
+  left: -32px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: 0 0 0 2px transparent, 0 0 0 2px var(--white),
+    0 0 0 4px var(--accent-2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.billing_details .shipping_option input[type="radio"]:checked + label::before {
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px transparent, 0 0 0 2px var(--white),
+    0 0 0 4px var(--secondary-color);
+}
+
+@media screen and (max-width: 992px) {
+  .billing_details .breadcrumb {
+    margin: 30px 0;
+  }
+  .billing_details .shipping_section h2,
+  .billing_section h1 {
+    font-size: 24px;
+  }
+
+  .billing_details .billing_section,
+  .billing_details .summary_section,
+  .billing_details .shipping_section {
+    padding: 14px;
+  }
+
+  .billing_details .shipping_option {
+    padding: 0px 10px;
+  }
+
+  .billing_details .shipping_option .details h2,
+  .billing_details .shipping_option .details h1 {
+    font-size: 16px;
+  }
+
+  .billing_details .form_group label {
+    font-size: 16px;
+  }
+
+  .billing_details .form_group .select_option .icon {
+    top: 55%;
+  }
+}
+
+/* Billing Details End */
+
+/* order summery */
+
+.billing_details .order_summery_wrapper {
+  border: 1px solid #eeeff3;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.billing_details .cart_items .type_wrap_container {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.billing_details .cart_items .type_wrap_container .type_wrap {
+  font-size: 16px;
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0;
+}
+
+.billing_details .cart_items .type_wrap_container .type_wrap span {
+  font-size: 16px;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin: 0;
+  padding-left: 10px;
+}
+
+.billing_details .discount_wrapper {
+  margin: 20px 0;
+}
+
+.billing_details .discount_wrapper .title {
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.billing_details .discount_wrapper .group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.billing_details .discount_wrapper input {
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  background: #eeeff3;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.billing_details .discount_wrapper .apply_btn {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 12px;
+  background: var(--secondary-color);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.4s;
+  border: none;
+  cursor: pointer;
+}
+
+.billing_details .discount_wrapper .apply_btn:hover {
+  background: var(--primary-color);
+}
+
+.billing_details .order_summery_wrapper .sign_up {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.billing_details .sign_up p:nth-child(1) {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0px 5px 0px 0px;
+}
+
+.billing_details .sign_up p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.billing_details .sign_up a {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: underline !important;
+}
+
+.billing_details .order_summary {
+  text-align: center;
+  padding: 0px 10px;
+}
+
+.billing_details .order_summary .summary_item {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.billing_details .summary_item:nth-last-of-type(1) {
+  color: var(--primary-color) !important;
+  border-top: 1px solid var(--accent-2) !important;
+  padding-top: 16px;
+}
+
+.billing_details .order_summary .summary_item .price1 {
+  color: var(--primary-color);
+}
+
+.billing_details .order_summary .summary_item .grand_price {
+  font-size: 22px !important;
+  color: var(--primary-color);
+}
+
+.billing_details .order_summary .checkout_btn,
+.billing_details .order_summary .continue_btn {
+  width: 100%;
+  font-size: 18px;
+  color: var(--white);
+  background: var(--secondary-color);
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 15px;
+  transition: 0.4s;
+}
+
+.billing_details .order_summary .checkout_btn:hover,
+.billing_details .order_summary .continue_btn:hover {
+  background: var(--primary-color);
+}
+
+.billing_details .cart_header h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.billing_details .cart_items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  max-height: 220px;
+  margin-right: 40px;
+  overflow-y: auto;
+}
+
+.billing_details .cart_items::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+.billing_details .cart_items .price {
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.billing_details .cart_items .product_details_wrapper {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.billing_details .cart_items .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.billing_details .cart_items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 10px 0;
+  gap: 5px;
+  margin-right: 10px;
+}
+
+.billing_details .cart_items li .product_item {
+  width: 25%;
+  height: 25%;
+  border-radius: 12px;
+  background: var(--gardiant);
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+}
+
+.billing_details .cart_items li .product_item img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center;
+}
+
+.billing_details .cart_items .item .title {
+  font-size: 18px;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .billing_details .form_group_wrapper {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .billing_details .order_summery_wrapper {
+    padding: 20px 14px;
+    margin-top: 30px;
+  }
+
+  .billing_details .cart_items .price,
+  .billing_details .cart_items .item .title {
+    font-size: 16px;
+  }
+
+  .billing_details .cart_items .item .title {
+    margin-bottom: 5px;
+  }
+
+  .billing_details .cart_items li .product_item {
+    border-radius: 6px !important;
+  }
+
+  .billing_details .order_summary .checkout_btn,
+  .billing_details .discount_wrapper .apply_btn,
+  .billing_details .order_summary .continue_btn {
+    padding: 8px 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .billing_details .cart_items .item .title {
+    width: 150px;
+  }
+}
+
+/* Billing Details End */
