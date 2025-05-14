@@ -45,7 +45,7 @@ const SubCategory = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/category"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/category`
         );
         setCategories(response.data.data); // Assuming categories are returned in `data.data`
       } catch (error) {
@@ -60,7 +60,7 @@ const SubCategory = () => {
     const fetchSubCategory = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/sub-category"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category`
         );
 
         setSubCategories(response.data.data || []);
@@ -202,14 +202,14 @@ const SubCategory = () => {
       if (isEditing) {
         // If editing, send a PUT request
         response = await axios.put(
-          `http://localhost:5070/api/v1/sub-category/${selectedSubCategory._id}`,
+          `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category/${selectedSubCategory._id}`,
           subCategoryData
         );
         toast.success("Sub Category updated successfully!");
       } else {
         // If adding new, send a POST request
         response = await axios.post(
-          "http://localhost:5070/api/v1/sub-category",
+          `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category`,
           subCategoryData
         );
         toast.success("Sub Category added successfully!");
@@ -261,7 +261,7 @@ const SubCategory = () => {
 
       // Send PUT request to update the sub category
       const { data } = await axios.put(
-        `http://localhost:5070/api/v1/sub-category/${selectedSubCategory._id}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category/${selectedSubCategory._id}`,
         updatedSubCategoryData
       );
 
@@ -302,7 +302,7 @@ const SubCategory = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5070/api/v1/sub-category/${subCategoryId}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category/${subCategoryId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

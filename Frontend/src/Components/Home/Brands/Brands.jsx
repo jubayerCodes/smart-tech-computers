@@ -13,7 +13,7 @@ const Brands = () => {
 
   useEffect(() => {
     const fetchBrands = async () => {
-      const response = await axios.get("http://localhost:5070/api/v1/brands");
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/v1/brands`);
 
       if (response?.data?.status === "success") {
         setBrands(response?.data?.data);
@@ -54,7 +54,7 @@ const Brands = () => {
                 <SwiperSlide key={idx}>
                   <div className="item">
                     <img
-                      src={`https://api.abcpabnabd.com${brand.brandImg}`}
+                      src={`${process.env.NEXT_PUBLIC_API}${brand.brandImg}`}
                       alt=""
                     />
                   </div>

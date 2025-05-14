@@ -39,7 +39,7 @@ const AuthLogin = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5070/api/v1/SignUP", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/SignUP`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -76,7 +76,7 @@ const AuthLogin = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5070/api/v1/Login", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/Login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginFormData),
@@ -120,7 +120,7 @@ const AuthLogin = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5070/api/v1/dashboard", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/dashboard`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`, // Pass the token here

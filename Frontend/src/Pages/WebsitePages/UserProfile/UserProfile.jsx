@@ -60,7 +60,7 @@ const UserProfile = () => {
 
     const fetchProfile = async () => {
       const result = await axios.get(
-        `http://localhost:5070/api/v1/profile-details/${existingUserID}`
+        `${process.env.NEXT_PUBLIC_API}/api/v1/profile-details/${existingUserID}`
       );
 
       console.log(result);
@@ -103,7 +103,7 @@ const UserProfile = () => {
     try {
       // Make a POST request to the logout endpoint
       const response = await axios.post(
-        "http://localhost:5070/api/v1/Logout",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/Logout`,
         {},
         {
           headers: {
@@ -151,7 +151,7 @@ const UserProfile = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5070/api/v1/profile/${existingUserID}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/profile/${existingUserID}`,
         updatedProfile,
         {
           headers: {
@@ -719,7 +719,7 @@ const UserProfile = () => {
                             />
                           ) : profile?.userID?.img_url ? (
                             <img
-                              src={`https://api.abcpabnabd.com${profile?.userID?.img_url}`}
+                              src={`${process.env.NEXT_PUBLIC_API}${profile?.userID?.img_url}`}
                               alt="profile"
                               width="120"
                             />

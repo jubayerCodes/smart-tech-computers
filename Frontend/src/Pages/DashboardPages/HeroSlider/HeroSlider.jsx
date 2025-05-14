@@ -29,7 +29,7 @@ const HeroSlider = () => {
     const fetchSlides = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/hero-slider"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/hero-slider`
         );
         setSlides(response?.data?.data || []);
       } catch (error) {
@@ -142,7 +142,7 @@ const HeroSlider = () => {
     try {
       // Add new category
       const response = await axios.post(
-        "http://localhost:5070/api/v1/hero-slider",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/hero-slider`,
         formData,
         {
           headers: {
@@ -194,7 +194,7 @@ const HeroSlider = () => {
     try {
       // Send PUT request to update the brand
       const { data } = await axios.put(
-        `http://localhost:5070/api/v1/hero-slider/${selectedSlide._id}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/hero-slider/${selectedSlide._id}`,
         formData,
         {
           headers: {
@@ -237,7 +237,7 @@ const HeroSlider = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5070/api/v1/hero-slider/${slideId}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/hero-slider/${slideId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -347,7 +347,7 @@ const HeroSlider = () => {
                             <td>
                               {slide?.slideImg ? (
                                 <img
-                                  src={`https://api.abcpabnabd.com${slide?.slideImg}`}
+                                  src={`${process.env.NEXT_PUBLIC_API}${slide?.slideImg}`}
                                   alt={slide?.slideImg || "Slide"}
                                   style={{
                                     aspectRatio: "1920 / 500",
@@ -646,7 +646,7 @@ const HeroSlider = () => {
                             <div className="img-box">
                               {slideImg === "" ? (
                                 <img
-                                  src={`https://api.abcpabnabd.com${selectedSlide?.slideImg}`}
+                                  src={`${process.env.NEXT_PUBLIC_API}${selectedSlide?.slideImg}`}
                                   alt="Slide"
                                   width="60"
                                 />

@@ -36,7 +36,7 @@ const Orders = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/order-list"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/order-list`
         );
 
         console.log(response.data.data);
@@ -92,7 +92,7 @@ const Orders = () => {
   const deleteOrder = async (billingDetailID) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5070/api/v1/order-delete/${billingDetailID}`
+        `${process.env.NEXT_PUBLIC_API}/api/v1/order-delete/${billingDetailID}`
       );
 
       if (response.data.status === "success") {
@@ -129,7 +129,7 @@ const Orders = () => {
 
   const handleUpdateStatus = async (id, status) => {
     const response = await axios.patch(
-      `http://localhost:5070/api/v1/order-update/${id}`,
+      `${process.env.NEXT_PUBLIC_API}/api/v1/order-update/${id}`,
       { status: status }
     );
 
@@ -336,7 +336,7 @@ const Orders = () => {
                       <div className="product_profile">
                         <div className="cart_img">
                           <img
-                            src={`https://api.abcpabnabd.com${product?.productDetails?.productImg}`}
+                            src={`${process.env.NEXT_PUBLIC_API}${product?.productDetails?.productImg}`}
                             alt=""
                           />
                         </div>

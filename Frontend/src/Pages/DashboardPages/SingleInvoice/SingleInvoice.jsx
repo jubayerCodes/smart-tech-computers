@@ -15,7 +15,7 @@ const SingleInvoice = ({ id }) => {
   useEffect(() => {
     const fetchOrderDetails = async () => {
       const response = await axios.get(
-        `http://localhost:5070/api/v1/order-details/${id}`
+        `${process.env.NEXT_PUBLIC_API}/api/v1/order-details/${id}`
       );
 
       if (response?.data?.status === "success") {

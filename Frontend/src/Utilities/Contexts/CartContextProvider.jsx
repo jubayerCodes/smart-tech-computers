@@ -106,7 +106,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     const response = await axios.get(
-      `http://localhost:5070/api/v1/product-details/${productID}`,
+      `${process.env.NEXT_PUBLIC_API}/api/v1/product-details/${productID}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

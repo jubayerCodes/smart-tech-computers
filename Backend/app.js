@@ -12,8 +12,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 //Database Connection
-let URL =
-  "mongodb+srv://smartTechComputers:dBAbp4cy50Fy2u0O@cluster0.opkciwj.mongodb.net/SmartTechComputersDB";
+let URL = process.env.MONGO_URI;
 let option = {
   user: "",
   pass: "",
@@ -56,9 +55,8 @@ app.use("/api/v1", router);
 // Serve static files from the 'uploads' directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-
-app.get("/", async(req, res)=>{
-  res.send({})
-})
+app.get("/", async (req, res) => {
+  res.send({});
+});
 
 module.exports = app;

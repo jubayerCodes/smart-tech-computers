@@ -88,7 +88,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/SignUP",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/SignUP`,
         formData
       );
 
@@ -138,7 +138,7 @@ const Checkout = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/Login",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/Login`,
         loginFormData
       );
 
@@ -266,7 +266,7 @@ const Checkout = () => {
     };
 
     const response = await axios.post(
-      "http://localhost:5070/api/v1/create-invoice",
+      `${process.env.NEXT_PUBLIC_API}/api/v1/create-invoice`,
       orderData
     );
 
@@ -562,7 +562,7 @@ const Checkout = () => {
                         <div className="product_details_wrapper">
                           <div className="product_item">
                             <img
-                              src={`https://api.abcpabnabd.com${item?.productImg}`}
+                              src={`${process.env.NEXT_PUBLIC_API}${item?.productImg}`}
                               alt=""
                             />
                           </div>

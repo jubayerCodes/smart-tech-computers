@@ -89,7 +89,7 @@ const UpdateProduct = ({ id }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       const response = await axios.get(
-        `http://localhost:5070/api/v1/product-details/${id}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/product-details/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -135,7 +135,7 @@ const UpdateProduct = ({ id }) => {
   useEffect(() => {
     const fetchBrands = async () => {
       try {
-        const response = await axios.get("http://localhost:5070/api/v1/brands");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/v1/brands`);
         setBrands(response?.data?.data);
       } catch (error) {
         console.error("Error fetching brands:", error);
@@ -150,7 +150,7 @@ const UpdateProduct = ({ id }) => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/category"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/category`
         );
         setCategories(response.data.data); // Assuming categories are returned in `data.data`
       } catch (error) {
@@ -166,7 +166,7 @@ const UpdateProduct = ({ id }) => {
     const fetchSubCategory = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/sub-category"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category`
         );
         setSubCategories(response.data.data);
       } catch (error) {
@@ -243,7 +243,7 @@ const UpdateProduct = ({ id }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/brands",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/brands`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -284,7 +284,7 @@ const UpdateProduct = ({ id }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/category",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/category`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -337,7 +337,7 @@ const UpdateProduct = ({ id }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/sub-category",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/sub-category`,
         formData
       );
 
@@ -388,7 +388,7 @@ const UpdateProduct = ({ id }) => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5070/api/v1/update-product/${id}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/update-product/${id}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -706,7 +706,7 @@ const UpdateProduct = ({ id }) => {
                           />
                         ) : productImg ? (
                           <img
-                            src={`https://api.abcpabnabd.com${productImg}`}
+                            src={`${process.env.NEXT_PUBLIC_API}${productImg}`}
                             alt="profile"
                             width="60"
                           />
@@ -836,7 +836,7 @@ const UpdateProduct = ({ id }) => {
                         <div className="img-box">
                           {selectedBrand?.brandImg && (
                             <img
-                              src={`http://localhost:5070/${selectedBrand.brandImg}`}
+                              src={`${process.env.NEXT_PUBLIC_API}/${selectedBrand.brandImg}`}
                               alt="Brand"
                               width="100"
                             />
@@ -930,7 +930,7 @@ const UpdateProduct = ({ id }) => {
                         <div className="img-box">
                           {selectedCategory?.categoryImg && (
                             <img
-                              src={`http://localhost:5070/${selectedCategory.categoryImg}`}
+                              src={`${process.env.NEXT_PUBLIC_API}/${selectedCategory.categoryImg}`}
                               alt="Category"
                               width="100"
                             />

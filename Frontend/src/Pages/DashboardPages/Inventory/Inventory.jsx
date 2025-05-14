@@ -15,7 +15,7 @@ const Inventory = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/product-list"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/product-list`
         );
 
         setProducts(response.data.data || []);
@@ -116,7 +116,7 @@ const Inventory = () => {
                             <td>
                               {product?.productImg ? (
                                 <img
-                                  src={`https://api.abcpabnabd.com${product.productImg}`}
+                                  src={`${process.env.NEXT_PUBLIC_API}${product.productImg}`}
                                   alt={product?.productName || "Product"}
                                   style={{
                                     width: "50px",

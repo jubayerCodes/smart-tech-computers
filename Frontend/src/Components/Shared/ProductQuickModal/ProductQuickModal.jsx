@@ -24,7 +24,7 @@ const ProductQuickModal = () => {
             <div className="modal_body">
               <div className="product">
                 <img
-                  src={`https://api.abcpabnabd.com${product?.productImg}`}
+                  src={`${process.env.NEXT_PUBLIC_API}${product?.productImg}`}
                   alt={product?.productName}
                   className="img-fluid"
                 />

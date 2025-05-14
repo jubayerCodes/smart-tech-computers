@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useContext, useEffect, useState } from "react";
 import productImg1 from "@/assets/img/cart-product-img1.webp";
@@ -9,22 +9,23 @@ import { useRouter } from "next/navigation";
 import moment from "moment";
 
 const ThankYou = () => {
-
-  const { order, removeOrder, loading } = useContext(PlaceOrderContext)
-  const router = useRouter()
+  const { order, removeOrder, loading } = useContext(PlaceOrderContext);
+  const router = useRouter();
 
   useEffect(() => {
     if (!order && !loading) {
-      return router.push("/")
+      return router.push("/");
     }
-  }, [order, loading, router])
+  }, [order, loading, router]);
 
-  const formattedDate = moment(order?.payment?.updatedAt).utcOffset(6).format("dddd, MMMM DD, YYYY - hh:mm a");
+  const formattedDate = moment(order?.payment?.updatedAt)
+    .utcOffset(6)
+    .format("dddd, MMMM DD, YYYY - hh:mm a");
 
   const handleBackToHome = () => {
-    removeOrder()
-    return router.push("/")
-  }
+    removeOrder();
+    return router.push("/");
+  };
 
   return (
     <>
@@ -50,7 +51,9 @@ const ThankYou = () => {
                 />
               </svg>
             </div>
-            <a href="#" onClick={handleBackToHome}>Back To Home</a>
+            <a href="#" onClick={handleBackToHome}>
+              Back To Home
+            </a>
           </div>
 
           <div className="thank_you_summery">
@@ -79,7 +82,10 @@ const ThankYou = () => {
                 </svg>
               </div>
               <h2>Thanks for your order!</h2>
-              <p>The order confirmation has been sent to {order?.billing?.cus_email}</p>
+              <p>
+                The order confirmation has been sent to{" "}
+                {order?.billing?.cus_email}
+              </p>
             </div>
 
             <div className="payment_details">
@@ -93,7 +99,10 @@ const ThankYou = () => {
               </div>
               <div className="details">
                 <h2 className="title">Payment Method</h2>
-                <p>{order?.payment?.pay_method}: {order?.payment?.tran_id} {order?.payment?.acc_number}</p>
+                <p>
+                  {order?.payment?.pay_method}: {order?.payment?.tran_id}{" "}
+                  {order?.payment?.acc_number}
+                </p>
               </div>
             </div>
 
@@ -102,46 +111,64 @@ const ThankYou = () => {
                 <h2>Your Order</h2>
               </div>
               <ul className="cart_items">
-                {
-                  order?.invoiceProducts?.map((product, idx) => (
-                    <li key={idx}>
-                      <div className="product_details_wrapper">
-                        <div className="product_item">
-                          <img src={`https://api.abcpabnabd.com${product?.productID?.productImg}`} alt="" />
-                        </div>
-                        <div className="item">
-                          <span className="title">{product?.productID?.productName}</span>
-                          <div className="type_wrap_container">
-                            <h2 className="type_wrap">
-                              {product?.productID?.subCategoryID?.subCategoryName}<span>x{product?.qty}</span>
-                            </h2>
-                          </div>
+                {order?.invoiceProducts?.map((product, idx) => (
+                  <li key={idx}>
+                    <div className="product_details_wrapper">
+                      <div className="product_item">
+                        <img
+                          src={`${process.env.NEXT_PUBLIC_API}${product?.productID?.productImg}`}
+                          alt=""
+                        />
+                      </div>
+                      <div className="item">
+                        <span className="title">
+                          {product?.productID?.productName}
+                        </span>
+                        <div className="type_wrap_container">
+                          <h2 className="type_wrap">
+                            {product?.productID?.subCategoryID?.subCategoryName}
+                            <span>x{product?.qty}</span>
+                          </h2>
                         </div>
                       </div>
-                      <div>
-                        <span className="price"> ৳{(product?.productID?.discountPrice || product?.productID?.price).toLocaleString(2)} </span>
-                      </div>
-                    </li>))
-                }
+                    </div>
+                    <div>
+                      <span className="price">
+                        {" "}
+                        ৳
+                        {(
+                          product?.productID?.discountPrice ||
+                          product?.productID?.price
+                        ).toLocaleString(2)}{" "}
+                      </span>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="order_summary mt-4">
               <p className="summary_item">
-                <span>Sub-Total</span> <span className="price1">৳{order?.payment?.subTotal}</span>
+                <span>Sub-Total</span>{" "}
+                <span className="price1">৳{order?.payment?.subTotal}</span>
               </p>
               <p className="summary_item">
-                <span>Discount</span> <span className="price">-৳{order?.payment?.discount}</span>
+                <span>Discount</span>{" "}
+                <span className="price">-৳{order?.payment?.discount}</span>
               </p>
               <p className="summary_item">
                 <span className="grand">Grand Total</span>
-                <span className="grand_price">৳{order?.payment?.grandTotal}</span>
+                <span className="grand_price">
+                  ৳{order?.payment?.grandTotal}
+                </span>
               </p>
             </div>
           </div>
 
           <div className="text-center">
-            <a href="#" className="home-btn" onClick={handleBackToHome}>Back To Home</a>
+            <a href="#" className="home-btn" onClick={handleBackToHome}>
+              Back To Home
+            </a>
           </div>
         </div>
       </div>

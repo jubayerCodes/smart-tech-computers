@@ -16,7 +16,7 @@ const Hero = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/hero-slider"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/hero-slider`
         );
 
         setBanners(response?.data?.data || []);
@@ -61,10 +61,7 @@ const Hero = () => {
           {banners?.map((banner, idx) => (
             <SwiperSlide key={idx} className="hero_slide">
               <div>
-                <img
-                  src={`https://api.abcpabnabd.com${banner?.slideImg}`}
-                  alt=""
-                />
+                <img src={`${process.env.NEXT_PUBLIC_API}${banner?.slideImg}`} alt="" />
               </div>
             </SwiperSlide>
           ))}

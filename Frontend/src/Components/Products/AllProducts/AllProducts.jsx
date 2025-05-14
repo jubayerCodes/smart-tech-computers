@@ -28,7 +28,7 @@ const AllProducts = ({ catId }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await axios.get(
-        "http://localhost:5070/api/v1/product-list"
+        `${process.env.NEXT_PUBLIC_API}/api/v1/product-list`
       );
 
       setProducts(response?.data?.data);
@@ -39,7 +39,7 @@ const AllProducts = ({ catId }) => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await axios.get("http://localhost:5070/api/v1/category");
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/v1/category`);
 
       if (response?.data?.status === "success") {
         setCategories(response?.data?.data);
@@ -574,7 +574,7 @@ const AllProducts = ({ catId }) => {
                       <div className="product">
                         <a href={`/products/${product?._id}`}>
                           <img
-                            src={`https://api.abcpabnabd.com${product?.productImg}`}
+                            src={`${process.env.NEXT_PUBLIC_API}${product?.productImg}`}
                             alt=""
                           />
                         </a>

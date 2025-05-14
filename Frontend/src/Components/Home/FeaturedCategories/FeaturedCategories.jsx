@@ -8,7 +8,7 @@ const FeaturedCategories = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await axios.get("http://localhost:5070/api/v1/category");
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/v1/category`);
 
       if (response?.data?.status === "success") {
         setCategories(response?.data?.data);
@@ -43,7 +43,7 @@ const FeaturedCategories = () => {
                   </div>
                   <div className="catagories_image">
                     <img
-                      src={`https://api.abcpabnabd.com${category.categoryImg}`}
+                      src={`${process.env.NEXT_PUBLIC_API}${category.categoryImg}`}
                       alt=""
                     />
                   </div>

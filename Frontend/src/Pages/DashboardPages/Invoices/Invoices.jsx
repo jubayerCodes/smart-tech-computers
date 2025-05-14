@@ -27,7 +27,7 @@ const Invoices = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5070/api/v1/order-list"
+          `${process.env.NEXT_PUBLIC_API}/api/v1/order-list`
         );
 
         setOrders(response.data.data || []);
@@ -232,7 +232,7 @@ const Invoices = () => {
                       <div className="product_profile">
                         <div className="cart_img">
                           <img
-                            src={`https://api.abcpabnabd.com${product?.productDetails?.productImg}`}
+                            src={`${process.env.NEXT_PUBLIC_API}${product?.productDetails?.productImg}`}
                             alt=""
                           />
                         </div>

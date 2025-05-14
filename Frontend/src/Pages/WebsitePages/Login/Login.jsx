@@ -40,7 +40,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/SignUP",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/SignUP`,
         formData
       );
 
@@ -88,7 +88,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5070/api/v1/Login",
+        `${process.env.NEXT_PUBLIC_API}/api/v1/Login`,
         loginFormData
       );
 

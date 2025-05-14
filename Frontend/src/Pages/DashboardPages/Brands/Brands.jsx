@@ -35,7 +35,7 @@ const Brands = () => {
   useEffect(() => {
     const fetchBrands = async () => {
       try {
-        const response = await axios.get("http://localhost:5070/api/v1/brands");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/v1/brands`);
 
         setBrands(response.data.data || []);
         setTotalItems(response?.data?.data.length);
@@ -133,7 +133,7 @@ const Brands = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5070/api/v1/brands", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/v1/brands`, {
         method: "POST",
         body: formData,
       });
@@ -184,7 +184,7 @@ const Brands = () => {
     try {
       // Send PUT request to update the brand
       const { data } = await axios.put(
-        `http://localhost:5070/api/v1/brands/${selectedBrand._id}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/brands/${selectedBrand._id}`,
         formData,
         {
           headers: {
@@ -227,7 +227,7 @@ const Brands = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5070/api/v1/brands/${brandId}`,
+        `${process.env.NEXT_PUBLIC_API}/api/v1/brands/${brandId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -335,7 +335,7 @@ const Brands = () => {
                           <td>
                             {brand?.brandImg ? (
                               <img
-                                src={`https://api.abcpabnabd.com${brand.brandImg}`}
+                                src={`${process.env.NEXT_PUBLIC_API}${brand.brandImg}`}
                                 alt={brand?.brandName || "Brand"}
                                 style={{
                                   width: "50px",
@@ -508,7 +508,7 @@ const Brands = () => {
                           <div className="img-box">
                             {selectedBrand?.brandImg && (
                               <img
-                                src={`https://api.abcpabnabd.com${selectedBrand.brandImg}`}
+                                src={`${process.env.NEXT_PUBLIC_API}${selectedBrand.brandImg}`}
                                 alt="Brand"
                                 width="100"
                               />
@@ -611,7 +611,7 @@ const Brands = () => {
                           <div className="img-box">
                             {selectedBrand?.brandImg && (
                               <img
-                                src={`http://localhost:5070/${selectedBrand.brandImg}`}
+                                src={`${process.env.NEXT_PUBLIC_API}/${selectedBrand.brandImg}`}
                                 alt="Brand"
                                 width="100"
                               />

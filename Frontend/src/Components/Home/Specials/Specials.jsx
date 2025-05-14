@@ -19,7 +19,7 @@ const Specials = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await axios.get(
-        "http://localhost:5070/api/v1/product-list"
+        `${process.env.NEXT_PUBLIC_API}/api/v1/product-list`
       );
 
       if (response?.data?.status === "success") {
@@ -71,7 +71,7 @@ const Specials = () => {
                       <div className="product">
                         <a href={`/products/${product?._id}`}>
                           <img
-                            src={`https://api.abcpabnabd.com${product?.productImg}`}
+                            src={`${process.env.NEXT_PUBLIC_API}${product?.productImg}`}
                             alt=""
                           />
                         </a>
